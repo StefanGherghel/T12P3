@@ -1,22 +1,9 @@
 import kotlin.properties.Delegates
 
-fun isPrimm(x: Int): Boolean
-{
-    var div = 2
-    while(div < x/2)
-        if(x % (div++)==0)
-            return false
-    return true
-}
 fun main(args: Array<String>) {
-    var Prim: Int by Delegates.vetoable(5) { property, oldValue, newValue -> isPrimm(newValue) }
-
-    println(Prim)
-
-    Prim = 6
-    println(Prim)
-
-    Prim = 7
-    println(Prim)
-
+    println("de cate ori sa apara fiecare numar in lista?: ")
+    val n = readln().toInt()
+    val listaMea = listOf(1,2,3,4)
+    val listaMeaNoua = listaMea.flatMap { var l = mutableListOf(it); for ( i in 1..n-1) l.add(it); l}
+    println(listaMeaNoua)
 }
