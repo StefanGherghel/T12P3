@@ -1,18 +1,17 @@
-fun Int.isPrimmmm(): Boolean{
-    var div: Int = 2;
-    while(div < this/2)
-    {
-        if(this%div==0)
-            return false
-        div++
-    }
-    return true
+import java.time.LocalDate
+import java.util.Date
+import java.util.Formatter
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+
+fun String.strToDate(format: DateTimeFormatter): LocalDate
+{
+    return LocalDate.parse(this, format)
 }
 
 
 fun main(args: Array<String>) {
-    val num1: Int = 17;
-    val num2: Int = 18;
-    println("Test1 extensie pe Int: ${num1.isPrimmmm()}")
-    println("Test2 extensie pe Int: ${num2.isPrimmmm()}")
+    var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+    val date: String = "12-09-1980"
+    println(date.strToDate(formatter).toString())
 }
